@@ -5,14 +5,12 @@ html {
 .App {
   text-align: center;
 }
-
 h2 {
   color: red;
   font-weight: lighter;
   font-size: 5vh;
   text-shadow: red 0px 0px 10px;
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,16 +21,13 @@ h2 {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 /*nice overflow*/
 body::-webkit-scrollbar {
   width: 0.2em;
 }
-
 body::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
-
 body::-webkit-scrollbar-thumb {
   background-color: red;
   outline: 1px solid red;
@@ -40,22 +35,18 @@ body::-webkit-scrollbar-thumb {
 div::-webkit-scrollbar {
   width: 0.1em;
 }
-
 div::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
-
 div::-webkit-scrollbar-thumb {
   background-color: red;
   outline: 1px solid red;
 }
-
 .tooltip {
   position: relative;
   display: inline-block;
   border-bottom: 1px dotted black;
 }
-
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 380px;
@@ -66,16 +57,13 @@ div::-webkit-scrollbar-thumb {
   border-radius: 6px;
   padding: 5px 5px;
   font-size: 15px;
-
   /* Position the tooltip */
   position: absolute;
   z-index: 99;
 }
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
-
 select,
 option {
   border: 0px;

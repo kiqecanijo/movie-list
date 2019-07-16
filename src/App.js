@@ -11,7 +11,12 @@ class App extends Component {
     requestURl: 'https://api.themoviedb.org/3/movie/',
     apiKey: 'd5bb4eb5d2560e009f6f873d49bc8493',
     region: 'US',
-    regions: ['US', 'MX', 'AR', 'CA']
+    regions: [
+      { code: 'US', country: 'United-States' },
+      { code: 'MX', country: 'México' },
+      { code: 'AR', country: 'Argentina' },
+      { code: 'CA', country: 'Canada' }
+    ]
   }
 
   componentWillMount() {
@@ -39,16 +44,15 @@ class App extends Component {
   }
 
   render() {
-    const { baseImg, size, image, types } = this.state
+    const { baseImg, size, image, types, regions } = this.state
     return (
       <div className="App">
         <header className="App-header">
           <h1>RANDOM MOVIES</h1>
           <select onChange={event => this.handleRegion(event.target.value)}>
-            <option value="US">USA</option>
-            <option value="MX">México</option>
-            <option value="CA">Canada</option>
-            <option value="AR">Argentina</option>
+            {regions.map(region => (
+              <option value={region.code}>{region.country}</option>
+            ))}
           </select>
           {types
             .map(type => ({ type, list: this.state[type] }))
