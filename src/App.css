@@ -49,3 +49,39 @@ div::-webkit-scrollbar-thumb {
   background-color: red;
   outline: 1px solid red;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 380px;
+  height: 272px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  font-size: 15px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 99;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+select,
+option {
+  border: 0px;
+  border-radius: 5px;
+  background-color: red;
+  color: white;
+  padding: 20px;
+  font-weight: bold;
+}

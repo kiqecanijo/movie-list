@@ -23,12 +23,15 @@ class Horizontal extends Component {
         <h2>{el.type}:</h2>
         {el.list &&
           el.list.filter(movie => movie.poster_path).map(movie => (
-            <ListItems>
+            <ListItems className="tooltip">
+              <span className="tooltiptext">
+                <p>Title: {movie.title}</p>
+                <p>Release: {movie.release_date}</p>
+                <p>Popularity: {movie.popularity}</p>
+                <p>Overview: {movie.overview}</p>
+              </span>
               {movie.poster_path && (
-                <img
-                  onMouseOver={event => console.log(event.target.src)}
-                  src={`${baseImg}${size}${movie.poster_path}`}
-                />
+                <img src={`${baseImg}${size}${movie.poster_path}`} />
               )}
               <p>{movie.title}</p>
             </ListItems>
