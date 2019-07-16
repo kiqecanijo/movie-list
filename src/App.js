@@ -6,6 +6,13 @@ import styled from 'styled-components'
 const ListItems = styled.div`
   display: table-cell;
   vertical-align: bottom;
+  padding: 5px;
+`
+
+const Horizontal = styled.div`
+  overflow: auto;
+  overflow-y: hidden;
+  max-width: 100%;
 `
 
 class App extends Component {
@@ -35,9 +42,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           {types.map(type => ({ type, list: this.state[type] })).map(el => (
-            <div>
+            <Horizontal>
               <h2>{el.type}:</h2>
-              {el.list && console.log(el.list)}
               {el.list &&
                 el.list.map(movie => (
                   <ListItems>
@@ -48,7 +54,7 @@ class App extends Component {
                     />
                   </ListItems>
                 ))}
-            </div>
+            </Horizontal>
           ))}
         </header>
       </div>
