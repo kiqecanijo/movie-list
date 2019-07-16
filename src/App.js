@@ -1,19 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import axios from 'axios'
-import styled from 'styled-components'
-
-const ListItems = styled.div`
-  display: table-cell;
-  vertical-align: bottom;
-  padding: 5px;
-`
-
-const Horizontal = styled.div`
-  overflow: auto;
-  overflow-y: hidden;
-  max-width: 100%;
-`
+import Horizontal from './HorizontalList'
 
 class App extends Component {
   state = {
@@ -21,15 +9,16 @@ class App extends Component {
     size: 185,
     types: ['now_playing', 'upcoming'],
     requestURl: 'https://api.themoviedb.org/3/movie/',
-    apiKey: 'd5bb4eb5d2560e009f6f873d49bc8493'
+    apiKey: 'd5bb4eb5d2560e009f6f873d49bc8493',
+    region: 'AR'
   }
 
   componentWillMount() {
-    const { requestURl, apiKey, types } = this.state
+    const { requestURl, apiKey, types, region } = this.state
     types.map(type =>
       axios
         .get(
-          `${requestURl}${type}?api_key=${apiKey}&page=15&language=en-US&page=1`
+          `${requestURl}${type}?api_key=${apiKey}&region=${region}&page=15&language=en-US&page=1`
         )
         .then(res => this.setState({ [type]: res.data.results }))
         .catch(error => console.log('an error ocurred 😞'))
@@ -41,21 +30,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {types.map(type => ({ type, list: this.state[type] })).map(el => (
-            <Horizontal>
-              <h2>{el.type}:</h2>
-              {el.list &&
-                el.list.map(movie => (
-                  <ListItems>
-                    <p>{movie.title}</p>
-                    <img
-                      onMouseOver={event => console.log(event.target.src)}
-                      src={`${baseImg}${size}${movie.poster_path}`}
-                    />
-                  </ListItems>
-                ))}
-            </Horizontal>
-          ))}
+          {types
+            .map(type => ({ type, list: this.state[type] }))
+            .map(el => <Horizontal el={el} size={size} baseImg={baseImg} />)}
         </header>
       </div>
     )

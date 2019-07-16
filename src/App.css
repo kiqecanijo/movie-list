@@ -1,11 +1,16 @@
+html {
+  font-family: roboto;
+  font-weight: lighter;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  color: red;
+  font-weight: lighter;
+  font-size: 5vh;
+  text-shadow: red 0px 0px 10px;
 }
 
 .App-header {
@@ -19,15 +24,28 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/*nice overflow*/
+body::-webkit-scrollbar {
+  width: 0.2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: red;
+  outline: 1px solid red;
+}
+div::-webkit-scrollbar {
+  width: 0.1em;
+}
+
+div::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+div::-webkit-scrollbar-thumb {
+  background-color: red;
+  outline: 1px solid red;
 }
