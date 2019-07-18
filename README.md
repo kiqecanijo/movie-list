@@ -10,9 +10,13 @@ simple list of movies and tv-shows from movie db
 ## instructions:
 
 - get all depencies
-  `npm run install`
+  `npm  install`
+    or
+  `yarn install`
 - start the project
-  `npm run start` 😎
+  `npm  start` 😎
+    or
+  `yarn start`
 
       maybe you need to open
       'http://localhost:3000'
